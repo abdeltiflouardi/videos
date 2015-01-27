@@ -1,0 +1,23 @@
+<table width="100%">
+    <tr style="background-color: #C0C0C0">
+        <th>ID</th>
+        <th>Libelle</th>
+        <th>Statut</th>
+    </tr>
+
+    
+    <?php
+        $i=1;
+        foreach($this->listCats as $cat):
+                $bg = $i%2 ? "#E0E0E0" : "#F3F3F3"; $i++;
+    ?>
+    <tr style="background-color: <?php echo $bg; ?>">
+        <td><?php echo $cat->getIdCat();?></td>
+        <td><?php echo $cat->getNomCat();?></td>
+        <td><?php echo $cat->getStatutCat();?></td>
+    </tr>
+    <?php
+        endforeach;
+    ?>
+    
+</table>

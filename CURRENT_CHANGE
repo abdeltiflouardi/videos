@@ -1,0 +1,19 @@
+leftMenu.php    déplacer le menu dans GetMenu
+GetMenu.php     Lien en miniscule
+PartialFilms    Les zones films cliquable
+Css             La zone cliquable underline: none
+list.phtml      getFilmsUrl
+Helper          GetFilmsUrl
+Router          Pour details films
+Création d'action details dans FilmsController
+HelperGetFilmsUrl   lien dynamic
+PartialFilms+GetMenu          escape utf8
+Créer un Helper     lien [a-z]
+Bootstrap           setEscape("utf8_encode")
+css La largeur du titre
+ajout helper getShortTitle
+modif partial getShortTitle
+Details films
+_____________________________________________________
+
+FilmsController redirect ajout film

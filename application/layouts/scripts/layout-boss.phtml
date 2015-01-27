@@ -1,0 +1,56 @@
+<?php 
+	echo $this->doctype() . "\n";
+?>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="fr" lang="fr"> 
+<head>
+  
+  <?php 
+  		echo $this->headTitle() . "\n";
+                $this->headMeta()  ->appendHttpEquiv('Content-Type', 'text/html; charset=UTF-8');
+   		echo $this->headMeta();
+   ?>
+   	<?php 
+		$jquery = $this->jQuery();	
+		$jquery->setCdnSsl(true);
+		$jquery->onLoadCaptureStart();
+	?>	
+	var content_show;
+	function ajax(){
+		
+								$.ajax({
+							method: "get",url: "/boss/actions",data: "tab="+escape(content_show),
+							beforeSend: function(){$("#loading").show("fast");}, //show loading just when link is clicked
+							complete: function(){ $("#loading").slideUp("slow");}, //stop showing loading when the process is complete
+							success: function(html){ //so, if data is retrieved, store it in html
+								$("#"+content_show).show("slow");
+								$('#'+content_show).html(html);
+					 }
+				 }); //close $.ajax(
+	}
+		 $('.ui-tabs-nav a').click(function() { //start function when any link is clicked
+		 				
+						 content_show = $(this).attr("href"); //retrieve title of link so we can compare with php file
+							content_show = content_show.substring(1,content_show.length);
+							//if(content_show.indexOf("4") >= 0) return;
+							$("#"+content_show).slideUp("slow");
+							
+							$('#loading').css({ width:eval(screen.width)+'px', height:eval(screen.height+document.documentElement.scrollTop)+'px', display:'block' });
+							ajax();
+         }); //close click(
+		
+	<?php	
+		$jquery->onLoadCaptureEnd();
+	
+		echo $jquery;
+	?>
+	
+	
+	
+	<?php echo $this->headLink()->appendStylesheet('/css/style-a.css') ?>
+</head> 
+<body>
+<div id="loading">Loading</div>
+
+<?php echo $this->layout()->content; ?>
+</body>
+</html>

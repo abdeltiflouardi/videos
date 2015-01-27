@@ -1,0 +1,13 @@
+<h2><?php echo $this->escape($this->film['nom_film']);?></h2>
+<p class="details">
+    <img src="<?php echo $this->getImg($this->film['img']);?>" alt="<?php echo $this->escape($this->film['nom_film']);?>" title="<?php echo $this->escape($this->film['nom_film']);?>"  />
+    <?php echo nl2br($this->escape($this->film['desc_film']));?>
+</p>
+
+<div style="text-align: center;">
+<object width="500" height="400">
+<param name="movie" value="<?php echo $this->film['video'];?>"/>
+<param name="allowFullScreen" value="true" />
+<embed src="<?php echo $this->film['video'];?>" type="application/x-shockwave-flash" allowfullscreen="true" width="500" height="400"></embed>
+</object>
+</div>

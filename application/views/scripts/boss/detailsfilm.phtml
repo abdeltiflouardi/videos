@@ -1,0 +1,57 @@
+<script type="text/javascript">
+    $("#commit").click(function(){
+        var titre   = $("#titre")   .val();
+        var desc    = $("#desc")    .val();
+        var img     = $("#img")     .val();
+        var video   = $("#video")   .val();
+        var dateaj  = $("#dateaj")  .val();
+        var idf     = $("#search")  .val();
+
+        $.get("/boss/majfilm", { titre: titre,desc: desc, img: img, video: video, dateaj: dateaj, idf: idf },
+                function success(data){
+                                $("#debug").html(data);
+        });
+    });
+
+    
+</script>
+<?php
+    if(count($this->debug) == 0):
+?>
+        <div>Pas de film</div>
+<?php
+    else:
+
+    foreach($this->debug[0] as $k=>$v)
+            $this->debug[0][$k] = $this->escape($v);
+
+?>
+    <div>
+        <label style="float: left;width: 120px;">Titre film:</label>
+        <input id="titre" name="titre" type="text" value="<?php echo $this->debug[0]['nom_film']; ?>" />
+    </div>
+    <div>
+        <label style="float: left;width: 120px;">Description:</label> 
+        <textarea id="desc" name="desc" rows="5" cols="50"><?php echo $this->debug[0]['desc_film'];?>
+        </textarea>
+    </div>
+    <div>
+        <label style="float: left;width: 120px;">Image:</label>
+        <input id="img" name="img" type="text"  value="<?php echo $this->debug[0]['img']; ?>" size="60" />
+    </div>
+    <div>
+        <label style="float: left;width: 120px;">Video:</label>
+        <input id="video" name="video" type="text" value="<?php echo $this->debug[0]['video']; ?>" size="60" />
+    </div>
+    <div>
+        <label style="float: left;width: 120px;">Date ajout:</label>
+        <input id="dateaj" name="dateaj" type="text" value="<?php echo $this->debug[0]['date_ajout']; ?>" size="60" />
+    </div>
+    <div>
+        <label style="float: left;width: 120px;">&nbsp;</label>
+        <a href="javascript:void(0);" id="commit" >Commit</a>
+        <label id="debug"></label>
+    </div>
+<?php
+    endif;
+?>

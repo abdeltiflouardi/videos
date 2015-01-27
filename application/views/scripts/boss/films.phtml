@@ -1,0 +1,15 @@
+<script  type="text/javascript">
+$("#searchOK").click(
+    function(){
+        str = $("#search").val();
+        $.get("/boss/detailsfilm", { idf: str },
+                function success(data){
+                                $("#formFilm").html(data);
+        });
+    }
+);
+</script>
+<input type="text" id="search" name="search" />
+<label style="float: left;width: 120px;">ID:</label>
+<a href="javascript:void(0);" id="searchOK">ok</a>
+<div id="formFilm"></div>

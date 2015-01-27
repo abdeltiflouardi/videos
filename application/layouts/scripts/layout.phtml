@@ -1,0 +1,127 @@
+<?php echo $this->doctype() ?>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+
+<?php
+$this->headTitle()->setSeparator(' - ');
+$this->headTitle($this->escape($this->term));
+$this->headTitle($this->escape($this->nom_cat));
+$this->headTitle($this->escape($this->film['nom_film']));
+$this->headTitle('Films en ligne');
+$this->headTitle('Films en streaming');
+if(isset($this->currPage))
+    $this->headTitle($this->escape('page '.$this->currPage));
+else
+    $this->currPage = "";
+
+echo $this->headTitle();
+?>
+
+<?php
+$this->headMeta()  ->appendHttpEquiv('Content-Type', 'text/html; charset=UTF-8')
+                   ->appendName('keywords', 'films en ligne, films gratuits, films online, film streaming, film action, films aventure, films comedie, films drame, films roman, films marocains, films tunisien, films algeriens, films arabe')
+        ;
+
+$desc = '%term% Films en ligne %page%, %term% films en streaming %page%, %term% films DVD, Découvrez regardez téléchargez les dernièrs films gratuitement! films 2008 / films 2009 / films 2010';
+
+
+if(isset($this->term))
+    $desc = str_replace(array('%term%','%page%'),array($this->term,$this->currPage),$desc);
+
+
+if(isset($this->nom_cat))
+    $desc = str_replace(array('%term%','%page%'),array($this->nom_cat,'liste '.$this->currPage),$desc);
+
+
+if(is_array($this->film))
+    $desc = str_replace(array('%term%','%page%'),array(utf8_encode($this->film['nom_film']),$this->currPage),$desc);
+
+
+/**/
+$this->headMeta()->appendName('description', $desc);
+
+echo $this->headMeta();
+echo "\n\n";
+
+echo $this->headLink()->appendStylesheet('/css/global.css');
+
+?>
+
+<?php /*if ($this->dojo()->isEnabled()){
+
+    $this->dojo()->setLocalPath('/js/dojo/dojo.js')
+
+                 ->addStyleSheetModule('dijit.themes.soria');
+
+    echo $this->dojo();
+
+   }*/
+
+?>
+
+</head>
+
+<body  class="soria">
+    <?php echo $this->render("header.php"); ?>
+
+    <?php echo $this->render("leftMenu.php"); ?>
+    <div id="content">
+    <?php echo $this->layout()->content; ?>
+    </div>
+
+    <div class="sep"></div>
+    <?php echo $this->render('tags.php');?>
+
+    <div class="sep"></div>
+
+    <?php echo $this->render("footer.php"); ?>
+
+    <div class="sep"></div>
+    
+    <?php if(PUB_TOOL_BAR === true): ?>
+        <div id="toolBar">
+            <script type="text/javascript"><!--
+google_ad_client = "pub-5144241215926384";
+/* forum_liste */
+google_ad_slot = "7553715685";
+google_ad_width = 468;
+google_ad_height = 13;
+//-->
+</script>
+<script type="text/javascript"
+src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
+</script>
+                        <script type="text/javascript"><!--
+google_ad_client = "pub-5144241215926384";
+/* forum_liste */
+google_ad_slot = "7553715685";
+google_ad_width = 468;
+google_ad_height = 13;
+//-->
+</script>
+<script type="text/javascript"
+src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
+</script>
+            <div id="closeToolBar">
+            <a href="javascript:void(0);" onclick="javascript:this.parentNode.parentNode.style.position='relative';">x</a>
+
+            </div>
+        </div>
+    <?php endif; ?>
+
+    <p align="right">
+    <a href="http://validator.w3.org/check?uri=referer">
+        <img style="border:0;width:88px;height:31px"
+        src="http://www.w3.org/Icons/valid-xhtml10"
+        alt="Valid XHTML 1.0 Transitional" height="31" width="88" /></a>
+
+    <a href="http://jigsaw.w3.org/css-validator/check/referer">
+        <img style="border:0;width:88px;height:31px"
+            src="http://jigsaw.w3.org/css-validator/images/vcss"
+            alt="CSS Valide !" />
+    </a>
+</p>
+</body>
+</html>

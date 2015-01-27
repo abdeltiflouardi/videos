@@ -1,0 +1,30 @@
+
+<p><a href="<?php echo $this->url(
+
+    array(
+
+        'controller' => 'categories',
+
+        'action'     => 'l'
+
+    ),
+
+    'default',
+
+    true) ?>">L Catégories</a></p>
+
+
+
+Liste Catégories: <br />
+
+<dl>
+
+    <?php foreach ($this->entries as $entry): ?>
+
+    <dt><?php echo $this->escape($entry->nom_cat) ?></dt>
+
+    <dd><?php echo $this->escape($entry->statut_cat) ?></dd>
+
+    <?php endforeach ?>
+
+</dl>

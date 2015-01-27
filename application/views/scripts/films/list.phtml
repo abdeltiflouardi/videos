@@ -1,0 +1,10 @@
+<h2>Films: <?php echo $this->escape($this->nom_cat);?></h2>
+<?php
+//var_dump($this->getFilmsUrl($this));
+echo $this->partialLoop('partialFilms.php', $this->getFilmsToArray($this));
+?>
+<div class="sep"></div>
+<?php
+echo $this->paginationControl($this->paginator, 'Sliding', 'paginator.phtml');
+
+?>

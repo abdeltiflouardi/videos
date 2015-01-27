@@ -1,0 +1,16 @@
+
+Liste Films: <br />
+
+<dl>
+
+    <?php foreach ($this->entries as $entry): ?>
+
+    <dt><?php echo $this->escape($entry->nom_film) ?> : </dt>
+    <dd><?php echo $this->escape($entry->desc_film) ?></dd>
+    <dd><?php echo $this->escape($entry->date_ajout) ?></dd>
+    <dd><?php echo $this->escape($entry->ajout_par) ?></dd>
+
+
+    <?php endforeach ?>
+
+</dl>

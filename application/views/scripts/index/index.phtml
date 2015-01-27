@@ -1,0 +1,24 @@
+<?php if(!isset($this->searchFilms)): ?>
+<h2>
+        Les dernièrs films
+    </h2>
+    <?php 
+        echo $this->partialLoop('partialFilms.php', $this->getFilmsToArray($this, 'lastFilms'));
+   ?>
+
+    <div class="sep"></div>
+
+    <h2>
+        Films les plus téléchargés
+    </h2>
+        <?php
+        echo $this->partialLoop('partialFilms.php', $this->getFilmsToArray($this, 'bestFilms'));
+   ?>
+<?php else: ?>
+<h2>
+        Résultats de la recherche: <?php echo $this->term;?>
+    </h2>
+    <?php
+        echo $this->partialLoop('partialFilms.php', $this->getFilmsToArray($this, 'searchFilms'));
+   ?>
+<?php endif; ?>

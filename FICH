@@ -1,0 +1,25 @@
+LE 24/03/2010
+
+Un site des films
+
+IDE:
+	NetBeans 7.8
+Framework PHP:
+	Zend 1.10.2
+Framework JavaScript:
+	Dojo 2.1
+
+L'encodage UTF-8 (Fichiers + meta HTML + BDD ...)
+
+Template ??!!!!
+Page d'accueil
+	Les catégories
+	|__Action
+	|__..........
+
+	La liste des films
+Lien vers un film:
+	Site/film12-nom-de-film.html
+Lien vers une catégorie du site
+	Site/cat5-action-p1.html (Avec pagination)
+

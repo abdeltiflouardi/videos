@@ -1,0 +1,192 @@
+/************ Element de base **************/
+body{
+    margin-top:10px;
+    width: 980px;
+    margin-left: auto;
+    margin-right: auto;
+    border: 1px solid #C4C596;
+    color: #342326;
+    padding: 5px;
+}
+
+a:link, a:active, a:visited {color:#8E966B;}
+a:hover {color:#FF704D;}
+
+
+/************ le zones **************/
+div#leftMenu{
+    border: 1px solid #C4C596;
+    padding: 2px;
+    width: 220px;
+    margin-right: 5px;
+    float:left;
+}
+
+div#content{
+    padding: 2px;
+    width: 740px;
+    border: 1px solid #C4C596;
+    float:left;
+}
+
+div#footer{
+    border-top: 1px solid #C4C596;
+    font-size: x-small;
+    text-align: center;
+    clear:left;
+}
+/************ Objets **************/
+h2{
+    font-weight: bold;
+    font-size: 1em;
+    background-color: #948F70;
+    background-image: url("/img/titre_bg.png");
+    background-repeat: repeat-x;
+    padding: 3px;
+    margin: 0px;
+}
+
+#content p{
+    
+}
+
+.menu{
+    margin: 0px ;
+    padding: 0px ;
+}
+
+.menu li{
+    border-bottom: 1px dotted #C4C596;
+    border-top: 1px dotted #C4C596;
+    background-color: #F4FABA;
+    list-style: none;
+    padding-left: 10px;
+    padding-right: 10px;
+    margin-bottom: 3px;
+    margin-top: 3px;
+}
+
+.menu li.selectedMenu{
+    background-color: #C4C596;
+}
+.menu li:HOVER{
+    background-color: #BABFA4;
+}
+
+.menu li a{
+    display: block ;
+    text-decoration: none;
+    color: #91996F;
+}
+
+.sep{
+    height:15px;
+    clear:both;
+}
+
+.item{
+    
+    list-style: none;
+    font-size: x-small;
+    font-weight: bold;
+    float:left;
+    height: 180px;
+    margin: 0px;
+    padding:0px;
+}
+.item li{
+    overflow:hidden;
+    width: 110px;
+    padding: 0px 19px 0px 19px;
+}
+.item img{
+    width: 110px;
+    height: 150px;
+    border: 0px;
+}
+
+.item a{
+    display: block;
+    text-decoration: none;
+}
+
+.details{
+    text-align: justify;
+}
+
+.details img{
+    float: left;
+    margin-right: 10px;
+    width: 120px;
+    height: 160px;
+}
+
+#toolBar{
+    font-size: 11px;
+    /*position: fixed;*/
+    bottom: 0px;
+    border: 1px dashed gray;
+    background-color:#fff;
+    width: 980px;
+    height: 14px;
+}
+
+#closeToolBar{
+    float:right;
+    border: 1px solid #C4C596;
+    padding-left: 2px;
+    padding-right: 2px;
+}
+
+#closeToolBar a{
+    display: block;
+    text-decoration: none;
+}
+
+.paginationControl{
+    width: 500px;
+    padding: 0px;
+    margin: 0px 0px 0px 15px;
+    float:left;
+    list-style: none;
+}
+
+
+
+.paginationControl .numPage{
+	background-color: #F4FABA;
+        text-align: center;
+	float: left;
+        font-size: x-small;
+	width: 30px;
+	margin: 0px 5px 0px 5px;
+	border: 1px solid #999;
+}
+
+.paginationControl .numPageSelectedNormal{
+    background-color: #BABFA4;
+}
+
+.paginationControl .numPageSelectedAuto{
+    width: auto;
+    background-color: #BABFA4;
+}
+
+.paginationControl a{
+        display: block;
+	text-decoration: none;
+}
+.paginationControl a:HOVER{
+    background-color: #C4C596;
+}
+
+.tags{
+    padding: 5px;
+    background-color: #F4FABA;
+}
+
+.tags a{
+    font-size: small;
+    text-decoration: none;
+    color: #91996F;
+}
